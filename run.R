@@ -52,7 +52,10 @@ input_file <- file.path(here(), "template/template_03_aside.Rmd")
 message("Copying contents of ", input_file, " to ", out_file)
 fl_content <- readLines(input_file)
 if (!is.na(profile$Logo)) {
-  fl_content <- gsub("logo.jpg", profile$Logo, fl_content)
+  fl_content <- gsub("logo.png", profile$Logo, fl_content)
+} else {
+  file.copy(file.path(here(), "template/logo.png"), "logo.png")
+  #fl_content <- fl_content[!grepl("logo.png", fl_content)]
 }
 write_lines(fl_content, out_file, append = TRUE)
 
@@ -136,12 +139,16 @@ if (!dir.exists("cv")) {
   dir.create("cv")
 }
 
+save.image()
+
 all_files <- c(
-  "styles.css",
-  "index.Rmd",
-  "index.html",
-  "index.pdf",
-  "citation.png"
+    "styles.css",
+    "index.Rmd",
+    "index.html",
+    "index.pdf",
+    "citation.png",
+    if (file.exists("logo.png")) "logo.png" else NULL,
+    ".RData"
 )
 suppressWarnings({
   file.copy(all_files, to = "cv")

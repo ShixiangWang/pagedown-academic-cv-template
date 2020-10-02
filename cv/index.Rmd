@@ -148,7 +148,7 @@ fill_nas <- function(column){
 }
 
 # Load csv with position info
-position_data <- read_csv(position_path) %>% 
+position_data <- read_csv("positions.csv") %>% 
   mutate_all(fill_nas) %>% 
   arrange(order, desc(end)) %>% 
   mutate(id = 1:n()) %>% 
@@ -171,7 +171,7 @@ Aside
 ================================================================================
 
 
-![logo](logo.jpg){width=100%}
+![logo](logo.png){width=100%}
 
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
