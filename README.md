@@ -1,4 +1,4 @@
-# Data-Driven Pagedown Rendered Academic CV
+# Data Driven Pagedown Rendered Academic CV
 
 This repo provides source-code and templates for automatically generate academic CV with CSV and Markdown.
 
