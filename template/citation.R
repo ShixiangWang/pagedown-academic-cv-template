@@ -10,6 +10,7 @@ library(ggimage)
 
 print_cite_png <- function(id, out = "citation.png") {
   citation <- tinyscholar::tinyscholar(id)$citation
+  total_citation <- citation[[2]][1]
   citation <- citation[-1, ] # remove 'total' row
   names(citation) <- c("year", "cites")
   citation$year <- as.numeric(citation$year)
@@ -33,7 +34,7 @@ print_cite_png <- function(id, out = "citation.png") {
     theme_transparent()
 
   ggsave(p, file = out, width = 3.5, height = 6, bg = "transparent")
-  return(sum(citation$cites))
+  return(total_citation)
 }
 
 ## library(magick)
