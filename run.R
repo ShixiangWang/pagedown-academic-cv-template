@@ -20,13 +20,10 @@ intro_md <- "intro.md"
 # Load csv with profile info
 profile <- fread(profile_path)
 
-# Set output
-out_file = "cv/index.Rmd"
-if (dir.exists(dirname(out_file))) {
-    unlink(dirname(out_file))
-}
-dir.create(dirname(out_file), recursive = TRUE)
-file.copy(file.path(here(), "template/styles.css"), "cv/styles.css")
+# Copy html and set output
+file.copy(file.path(here(), "template/styles.css"), "styles.css")
+out_file = "index.Rmd"
+
 
 # Part 1: yaml ---------------------------------------------------------
 input_file <- file.path(here(), "template/template_01_yml.Rmd")
@@ -91,5 +88,31 @@ input_file <- file.path(here(), "template/template_04_presentation.Rmd")
 just_copy(input_file, out_file)
 
 # Render ------------------------------------------------------------------
-rmarkdown::render("cv/index.Rmd")
-# pagedown::chrome_print("index.html", "index.pdf")
+rmarkdown::render("index.Rmd")
+tryCatch(
+    pagedown::chrome_print("index.html", "index.pdf"),
+    error = function(e) {
+        message(e$message)
+        message("PDF cannot be generated, please print pdf by your own.")
+    }
+)
+
+# Generate result directory
+if (!dir.exists("cv")) {
+    dir.create("cv")
+}
+
+all_files <- c(
+    "styles.css",
+    "index.Rmd",
+    "index.html",
+    "index.pdf",
+    "citation.png")
+suppressWarnings(
+    {
+        file.copy(all_files, to = "cv")
+        file.remove(all_files)
+    }
+)
+
+message("Open index.html in cv directory to check your CV!")
