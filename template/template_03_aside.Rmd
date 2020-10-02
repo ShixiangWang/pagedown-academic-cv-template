@@ -1,0 +1,14 @@
+
+Aside
+================================================================================
+
+
+![logo](logo.jpg){width=100%}
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+# if(PDF_EXPORT){
+#   cat("View this CV online with links at _guangchuangyu.github.io/cv_")
+# }
+```
+

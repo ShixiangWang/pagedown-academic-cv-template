@@ -1,0 +1,7 @@
+
+Research Experience {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+```{r, results='asis', echo = FALSE}
+print_section(position_data, 'research_positions')
+```

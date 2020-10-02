@@ -1,0 +1,8 @@
+
+
+Conference proceedings {data-icon=group}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'presentation')
+```

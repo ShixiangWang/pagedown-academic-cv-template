@@ -1,0 +1,8 @@
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+
+```{r}
+print_section(position_data, 'teaching_positions')
+```

@@ -1,0 +1,7 @@
+
+Certificate {data-icon=book}
+--------------------------------------------------------------------------------
+
+```{r, results='asis', echo = FALSE}
+print_section(position_data, 'certificate')
+```

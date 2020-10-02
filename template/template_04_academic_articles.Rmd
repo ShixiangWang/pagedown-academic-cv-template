@@ -1,0 +1,26 @@
+
+Publications {data-icon=book}
+--------------------------------------------------------------------------------
+
+::: aside
+
+```{r}
+  glue(
+
+"
++ Citation = {profile$total_cites}
++ H-index = {profile$h_index}
++ I10-index = {profile$i10_index}
+
+"
+  ) %>% print()
+
+```
+
+![](citation.png)
+:::
+
+
+```{r}
+print_section(position_data, 'academic_articles')
+```
