@@ -169,6 +169,10 @@ img{
   right: 0;
 }
 
+.break-after-me {
+  break-after: page;
+}
+
 /* main */
 
 /** big title **/
@@ -198,6 +202,7 @@ h1, h2{
 
 .main-block{
   margin-top: 0.1in;
+  break-inside: avoid;
 }
 
 #main h2{

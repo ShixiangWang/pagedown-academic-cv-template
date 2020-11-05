@@ -133,9 +133,12 @@ tryCatch(
 )
 
 # Generate result directory
-if (!dir.exists("cv")) {
-  dir.create("cv")
+
+if (dir.exists("cv")) {
+  message("Directory cv already exists, delete it firstly!")
+  unlink("cv", recursive = TRUE)
 }
+dir.create("cv")
 
 save.image()
 
@@ -153,4 +156,4 @@ suppressWarnings({
   file.remove(all_files)
 })
 
-message("Open index.html in cv directory to check your CV!")
+message("Open index.html under cv directory to check your CV!")
